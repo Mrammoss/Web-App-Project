@@ -1,18 +1,7 @@
-# sinatra-template
+# Helpful Advice App
 
-Use this repository to create new Sinatra apps. 
+This application gives you random helpful advice. 
 
-Optionally, to use `ActiveRecord` for database operations, add to the `app.rb`:
+By default the website will load a piece of advice. 
 
-```ruby
-require "sinatra/activerecord"
-```
-
-And in the `config/environment.rb` file add this code block:
-
-```ruby
-configure do
-  # setup a database connection
-  set(:database, { adapter: "sqlite3", database: "db/development.sqlite3" })
-end
-```
+After clicking the submit button, a different piece of advice will populate. 
