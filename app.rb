@@ -1,9 +1,16 @@
 require "sinatra"
 require "sinatra/reloader"
+require "http"
 
 get("/") do
-  "
-  <h1>Welcome to your Sinatra App!</h1>
-  <p>Define some routes in app.rb</p>
-  "
+ api_url = "https://api.adviceslip.com/advice"
+
+@raw_response = HTTP.get(api_url)
+@raw_string = @raw_response.to_s
+@parsed_data = JSON.parse(@raw_string)
+@slip = @parsed_data.fetch("slip")
+@advice = @slip.fetch("advice")
+
+
+erb(:homepage)
 end
